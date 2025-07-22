@@ -2,8 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\User;
-use App\Repositories\UserRepository;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Views\PhpRenderer;
@@ -16,6 +14,7 @@ class HomeController
 
     public function index(Request $request, Response $response): Response
     {
+        $this->renderer->setLayout('default/layout/master.php');
         return $this->renderer->render($response, 'welcome.php');
     }
 }

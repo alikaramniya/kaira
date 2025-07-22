@@ -8,6 +8,7 @@ use Monolog\Logger;
 use Psr\Container\ContainerInterface;
 use Slim\Factory\AppFactory;
 use Slim\App;
+use Slim\Views\PhpRenderer;
 
 use function DI\create;
 
@@ -32,4 +33,5 @@ return [
         return $log->pushHandler(new StreamHandler(STORAGE_PATH . 'logs/php.log', Level::Debug));
     },
     DB::class => fn(Config $config, Logger $log) => new DB($config, $log),
+    PhpRenderer::class => create(PhpRenderer::class)->constructor(VIEW_PATH),
 ];

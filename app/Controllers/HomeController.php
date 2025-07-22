@@ -6,19 +6,16 @@ use App\Models\User;
 use App\Repositories\UserRepository;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
+use Slim\Views\PhpRenderer;
 
 class HomeController
 {
     public function __construct(
-        private readonly UserRepository $userRepository
+        private readonly PhpRenderer $renderer
     ) {}
 
     public function index(Request $request, Response $response): Response
     {
-        var_dump($this->userRepository->all());
-
-        $response->getBody()->write('message for test');
-
-        return $response;
+        return $this->renderer->render($response, 'welcome.php');
     }
 }

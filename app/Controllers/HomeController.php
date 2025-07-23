@@ -9,12 +9,13 @@ use Slim\Views\PhpRenderer;
 class HomeController
 {
     public function __construct(
-        private readonly PhpRenderer $renderer
+        private readonly PhpRenderer $renderer,
     ) {}
 
     public function index(Request $request, Response $response): Response
     {
         $this->renderer->setLayout('default/layout/master.php');
+
         return $this->renderer->render($response, 'welcome.php');
     }
 }

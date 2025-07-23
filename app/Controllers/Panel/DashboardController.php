@@ -11,7 +11,7 @@ class DashboardController
     private const string MASTER_PAGE = 'panel/layout/master.php';
 
     public function __construct(
-        private readonly PhpRenderer $renderer
+        private readonly PhpRenderer $renderer,
     ) {}
 
     public function dashboard(Request $request, Response $response): Response

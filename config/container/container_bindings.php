@@ -2,13 +2,15 @@
 
 use App\Core\Config;
 use App\Core\DB;
+use App\Core\Router;
 use Monolog\Handler\StreamHandler;
 use Monolog\Level;
 use Monolog\Logger;
 use Psr\Container\ContainerInterface;
+use Psr\Http\Message\ResponseFactoryInterface;
 use Slim\Factory\AppFactory;
-use Slim\App;
 use Slim\Views\PhpRenderer;
+use Slim\App;
 
 use function DI\create;
 
@@ -32,6 +34,8 @@ return [
 
         return $log->pushHandler(new StreamHandler(STORAGE_PATH . 'logs/php.log', Level::Debug));
     },
-    DB::class => fn(Config $config, Logger $log) => new DB($config, $log),
-    PhpRenderer::class => create(PhpRenderer::class)->constructor(VIEW_PATH),
+    DB::class                       => fn(Config $config, Logger $log) => new DB($config, $log),
+    PhpRenderer::class              => create(PhpRenderer::class)->constructor(VIEW_PATH),
+    Router::class                   => fn(PhpRenderer $renderer, App $app) => new Router($renderer, $app),
+    ResponseFactoryInterface::class => fn(App $app) => $app->getResponseFactory(),
 ];

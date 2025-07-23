@@ -6,10 +6,10 @@ use App\Controllers\Panel\DashboardController;
 use Slim\App;
 
 return function (App $app) {
-    $app->get('/', [HomeController::class, 'index']);
+    $app->get('/', [HomeController::class, 'index'])->setName('home');
 
-    $app->get('/dashboard', [DashboardController::class, 'dashboard']);
+    $app->get('/dashboard', [DashboardController::class, 'dashboard'])->setName('dashboard');
 
-    $app->get('/login', [AuthController::class, 'login']);
-    $app->get('/register', [AuthController::class, 'register']);
+    $app->get('/login', [AuthController::class, 'login'])->setName('login');
+    $app->get('/register', [AuthController::class, 'register'])->setName('register');
 };

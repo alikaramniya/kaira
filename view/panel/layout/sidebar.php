@@ -2,7 +2,7 @@
     <div class="sidenav-header">
         <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute start-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
         <a class="navbar-brand px-4 py-3 m-0" href=" https://demos.creative-tim.com/material-dashboard/pages/dashboard " target="_blank">
-            <img src="panel/assets/img/logo-ct.png" class="navbar-brand-img" width="26" height="26" alt="main_logo">
+            <img src="/panel/assets/img/logo-ct.png" class="navbar-brand-img" width="26" height="26" alt="main_logo">
             <span class="me-1 text-sm text-white">Creative Tim</span>
         </a>
     </div>
@@ -54,6 +54,22 @@
                             <a class="nav-link text-white " href="../../pages/pages/widgets.html">
                                 <span class="sidenav-mini-icon"> W </span>
                                 <span class="sidenav-normal  ms-1  ps-1"> Widgets </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#usersList" class="nav-link text-white collapsed" aria-controls="usersList" role="button" aria-expanded="false">
+                    <i class="material-symbols-rounded opacity-5 {% if page.brand == 'RTL' %}ms-2{% else %} me-2{% endif %}">contract</i>
+                    <span class="nav-link-text ms-1 ps-1">کاربران</span>
+                </a>
+                <div class="collapse" id="usersList" style="">
+                    <ul class="nav ">
+                        <li class="nav-item ">
+                            <a class="nav-link text-white " href="<?= $router->urlFor('users.index') ?>">
+                                <span class="sidenav-mini-icon"> U </span>
+                                <span class="sidenav-normal  ms-1  ps-1"> لیست کاربران </span>
                             </a>
                         </li>
                     </ul>

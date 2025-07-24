@@ -18,6 +18,6 @@ class DashboardController
     {
         $this->renderer->setLayout(self::MASTER_PAGE);
 
-        return $this->renderer->render($response, 'panel/dashboard.php');
+        return $this->renderer->render($response, 'panel/dashboard.php', ['parent' => 'پنل مدیریت', 'child' => 'داشبورد', 'title' => 'داشبورد']);
     }
 }

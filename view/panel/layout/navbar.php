@@ -2,14 +2,14 @@
     <div class="container-fluid py-1 px-3">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 ">
-                <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-white" href="javascript:;">پنل مدیریت</a></li>
-                <li class="breadcrumb-item text-sm text-warning" aria-current="page">داشبورد</li>
+                <li class="breadcrumb-item text-sm ps-2"><a class="opacity-5 text-white" href="javascript:;"><?= $parent ?></a></li>
+                <li class="breadcrumb-item text-sm text-warning" aria-current="page"><?= $child ?></li>
             </ol>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 px-0" id="navbar">
             <div class="ms-md-auto pe-md-3 d-flex align-items-center">
                 <div class="input-group input-group-outline">
-                    <label class="form-label">أكتب هنا...</label>
+                    <label class="form-label">جستجو...</label>
                     <input type="text" class="form-control">
                 </div>
             </div>
@@ -40,7 +40,7 @@
                             <a class="dropdown-item border-radius-md" href="javascript:;">
                                 <div class="d-flex py-1">
                                     <div class="my-auto">
-                                        <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  ms-3 ">
+                                        <img src="/panel/assets/img/team-2.jpg" class="avatar avatar-sm  ms-3 ">
                                     </div>
                                     <div class="d-flex flex-column justify-content-center">
                                         <h6 class="text-sm font-weight-normal mb-1">
@@ -58,7 +58,7 @@
                             <a class="dropdown-item border-radius-md" href="javascript:;">
                                 <div class="d-flex py-1">
                                     <div class="my-auto">
-                                        <img src="../assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  ms-3 ">
+                                        <img src="/panel/assets/img/small-logos/logo-spotify.svg" class="avatar avatar-sm bg-gradient-dark  ms-3 ">
                                     </div>
                                     <div class="d-flex flex-column justify-content-center">
                                         <h6 class="text-sm font-weight-normal mb-1">
@@ -105,9 +105,19 @@
                     </ul>
                 </li>
                 <li class="nav-item d-flex align-items-center">
-                    <a href="../pages/sign-in.html" class="nav-link text-body font-weight-bold px-0">
+                    <a href="javascript:;" class="nav-link text-body font-weight-bold px-0" id="dropdownProfileButton" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="material-symbols-rounded">account_circle</i>
                     </a>
+                    <ul class="dropdown-menu bg-dark px-2 py-3 me-sm-n4" aria-labelledby="dropdownProfileButton">
+                        <li class="mb-2">
+                            <button type="button" class="btn btn-info btn-lg w-100"> ویرایش پروفایل </button>
+                        </li>
+                        <li class="mb-2">
+                            <form action="/logout" method="post">
+                                <button type="submit" class="btn btn-secondary btn-lg w-100"><i class="fa-solid fa-arrow-right-from-bracket"></i> خروج از پنل </button>
+                            </form>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </div>

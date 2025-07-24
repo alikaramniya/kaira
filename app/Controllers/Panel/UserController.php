@@ -16,6 +16,6 @@ class UserController
     {
         $this->renderer->setLayout('panel/layout/master.php');
 
-        return $this->renderer->render($response, 'panel/user/list.php');
+        return $this->renderer->render($response, 'panel/user/list.php', ['parent' => 'کاربران', 'child' => 'لیست کاربران', 'title' => 'لیست کاربران']);
     }
 }

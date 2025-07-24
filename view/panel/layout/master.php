@@ -21,7 +21,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="panel/assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="panel/assets/img/favicon.png">
     <title>
-        Material Dashboard 3 by Creative Tim
+        <?= $title ?? 'پنل مدیریت' ?> 
     </title>
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,900" />
@@ -45,7 +45,7 @@
         <!-- Navbar -->
 
         
-        <?= $this->fetch('panel/layout/navbar.php') ?>
+        <?= $this->fetch('panel/layout/navbar.php', ['parent' => $parent, 'child' => $child]) ?>
 
 
         <!-- End Navbar -->
@@ -300,6 +300,19 @@
             }
             Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
         }
+
+        const navbarNav = document.querySelector('.navbar-nav');
+
+        for (const itemNav of navbarNav.children) {
+            if (itemNav.querySelector('.show')) {
+                let divCollapse = itemNav.querySelector('.show');
+
+                divCollapse.classList.remove('show');
+            }
+        }
+
+        let currentItem = navbarNav.querySelector("a[href='#']");
+        currentItem.parentNode.parentNode.parentNode.classList.add('show') ;
     </script>
     <!-- Github buttons -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
